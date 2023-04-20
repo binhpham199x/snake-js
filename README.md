@@ -1,2 +1,2 @@
 # snake-js
-simple snake game in JavaScript
+simple snake game in JavaScript, HTML
