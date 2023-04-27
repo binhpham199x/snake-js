@@ -59,9 +59,14 @@ class Gameplay {
 
     checkHeadHitTail() {
         let snakeHead = this.snake.snakeTail[0];
-        if (headHitTail) {
-            alert("GAME OVER !!! Press F5 to start a new game :D");
-        }
+        let snakeBody = this.snake.snakeTail;
+
+        for (let i = 1; i < this.snake.snakeTail.length; ++i) {
+            if (snakeHead.x == snakeBody[i].x && snakeHead.y == snakeBody[i].y) {
+                alert("GAME OVER !!! Press F5 or press OK to start a new game :D");
+                location.reload();
+            }
+        };
     };
 
     checkAppleEaten() {
@@ -76,8 +81,8 @@ class Gameplay {
         this.canvasContext.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
         this.createApple();
         this.snake.move();
+        this.checkHeadHitTail();
         this.checkAppleEaten();
-        // this.checkHeadHitTail();
         this.checkHitCanvasBorder();
     };
 
@@ -89,7 +94,7 @@ class Gameplay {
             let x = this.snake.snakeTail[i].x;
             let y = this.snake.snakeTail[i].y;
 
-            this.createRect(x, y, this.size - 1 , this.size - 1, "white")
+            this.createRect(x, y, this.size - 1, this.size - 1, "white")
         };
         // draw score
         this.canvasContext.font = "20px Arial";
@@ -127,7 +132,7 @@ window.addEventListener("keydown", (event) => {
         } else if (event.keyCode == 40) {
             gameplay.snake.turnDown();
         }
-    }, 1);
+    }, 10);
 })
 
 
