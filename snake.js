@@ -1,4 +1,4 @@
-class Snake {
+export class Snake {
     constructor(x, y, size) {
         this.x = x;
         this.y = y;

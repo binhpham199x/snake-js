@@ -1,3 +1,6 @@
+import { Apple } from "./apple.js";
+import { Snake } from "./snake.js";
+
 class Gameplay {
     constructor(canvasWidth, canvasHeight, snakePosX, snakePosY, unitSize) {
 
@@ -123,13 +126,13 @@ let timeDelay = 100;
 
 window.addEventListener("keydown", (event) => {
     setTimeout(() => {
-        if (event.keyCode == 37) {
+        if (event.key == "ArrowLeft") {
             gameplay.snake.turnLeft();
-        } else if (event.keyCode == 38) {
+        } else if (event.key == "ArrowUp") {
             gameplay.snake.turnUp()
-        } else if (event.keyCode == 39) {
+        } else if (event.key == "ArrowRight") {
             gameplay.snake.turnRight();
-        } else if (event.keyCode == 40) {
+        } else if (event.key == "ArrowDown") {
             gameplay.snake.turnDown();
         }
     }, 10);
