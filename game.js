@@ -124,19 +124,29 @@ window.onload = () => {
 
 let timeDelay = 100;
 
+let events = [];
+
 window.addEventListener("keydown", (event) => {
-    setTimeout(() => {
-        if (event.key == "ArrowLeft") {
-            gameplay.snake.turnLeft();
-        } else if (event.key == "ArrowUp") {
-            gameplay.snake.turnUp()
-        } else if (event.key == "ArrowRight") {
-            gameplay.snake.turnRight();
-        } else if (event.key == "ArrowDown") {
-            gameplay.snake.turnDown();
-        }
-    }, 10);
+    events.unshift(event);
+    console.log(events);
 })
+
+setInterval(() => {
+    let event = events.pop();
+
+    if (!event)
+        return;
+
+    if (event.key == "ArrowLeft") {
+        gameplay.snake.turnLeft();
+    } else if (event.key == "ArrowUp") {
+        gameplay.snake.turnUp()
+    } else if (event.key == "ArrowRight") {
+        gameplay.snake.turnRight();
+    } else if (event.key == "ArrowDown") {
+        gameplay.snake.turnDown();
+    }
+}, 10);
 
 
 
