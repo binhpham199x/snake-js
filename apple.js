@@ -5,5 +5,5 @@ export class Apple {
 
         this.x = appleX;
         this.y = appleY;
-    };
+    }
 }
