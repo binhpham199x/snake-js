@@ -120,7 +120,7 @@ class Gameplay {
     }
 }
 
-let gameplay = new Gameplay(800, 800, 20, 20, 20);
+let gameplay = new Gameplay(800, 600, 20, 20, 20);
 
 window.onload = () => {
     setInterval(() => {
